@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveVector;
     private SpriteRenderer playerSpritRenderer;
 
+    private Animator playerAnimator;
+    private string WALK_ANIMATION = "Walk";
+
+
     private float harvestTimer;
     private bool isHarvesting;
 
@@ -25,21 +29,29 @@ public class PlayerMovement : MonoBehaviour
 
         playerBody = GetComponent<Rigidbody2D>();
         playerSpritRenderer =GetComponent<SpriteRenderer>();
+        playerAnimator = GetComponent<Animator>();
 
     }
 
     private void FixedUpdate() {
         
-        if (isHarvesting)
+        if (isHarvesting) {
             playerBody.velocity = Vector2.zero;
+        }
+            
         else {
 
             moveVector = new Vector2(Input.GetAxis(MOVEMENT_AXIS_X), Input.GetAxis(MOVEMENT_AXIS_Y));
 
-            if (moveVector.sqrMagnitude > 1)
-                moveVector = moveVector.normalized;
+            if (moveVector.sqrMagnitude > 1) {
+
+                 moveVector = moveVector.normalized;
+
+            }
+
 
             playerBody.velocity =  new Vector2(moveVector.x *movementSpeed, moveVector.y * movementSpeed);
+            
 
         }
 
@@ -48,13 +60,13 @@ public class PlayerMovement : MonoBehaviour
     private void Update() {
 
         FlipSprite();
-        
+        AnimatePlayer();
     }
 
     void FlipSprite() {
 
         if (Input.GetAxisRaw(MOVEMENT_AXIS_X) == 1) {
-
+            
             playerSpritRenderer.flipX = false;
 
         }
@@ -64,6 +76,20 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+    }
+
+    void AnimatePlayer() {
+
+        if (Input.GetAxisRaw(MOVEMENT_AXIS_X) > 0 || Input.GetAxisRaw(MOVEMENT_AXIS_X) < 0 ||Input.GetAxisRaw(MOVEMENT_AXIS_Y) > 0 || Input.GetAxisRaw(MOVEMENT_AXIS_Y) < 0) {
+        
+            playerAnimator.SetBool(WALK_ANIMATION, true);
+        
+        }
+        else {
+
+            playerAnimator.SetBool(WALK_ANIMATION, false);
+
+        }
     }
 
 } // class

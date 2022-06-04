@@ -24,7 +24,7 @@ public class BushFruits : MonoBehaviour
         if (Random.Range(0, 2) == 0) {
 
             hasFruits = false;
-            timer = Time.time + respwanTime[(int)bushVisual.GetBushVariant()];
+            timer = Time.time + respwanTime[(int)bushVisual.GetBushVariant()]; 
 
         }
         else {

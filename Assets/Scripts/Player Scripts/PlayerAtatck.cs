@@ -20,10 +20,15 @@ public class PlayerAtatck : MonoBehaviour
     
     private Vector3 spawnPosition;
 
+    private GameObject artifact;
+    private string ARTIFACT_TAG = "Artifact";
+
     private void Awake() {
 
         audioSource = GetComponent<AudioSource>();
         mainCamera = Camera.main;
+
+        artifact = GameObject.FindWithTag(ARTIFACT_TAG);
 
     }
 
@@ -32,7 +37,7 @@ public class PlayerAtatck : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse0) && Time.time > attackTimer) {
 
             Slash();
-            audioSource.Play();
+            
             attackTimer = Time.time + attackCoolDown;
 
         }
@@ -40,6 +45,11 @@ public class PlayerAtatck : MonoBehaviour
     }
 
     void Slash() {
+
+        if(!artifact)
+            return; 
+
+        audioSource.Play();
 
         spawnPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         spawnPosition.z = 0f;

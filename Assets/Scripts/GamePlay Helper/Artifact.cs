@@ -54,7 +54,7 @@ public class Artifact : MonoBehaviour
 
             helath = 0;
 
-            //Show game over UI
+            GameOverUIController.instance.GameOver("You Lose !");
 
             Destroy(gameObject);
         }

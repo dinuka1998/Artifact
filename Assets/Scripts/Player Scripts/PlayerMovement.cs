@@ -59,8 +59,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update() {
 
+        if(Time.time > harvestTimer)
+            isHarvesting = false;
+
         FlipSprite();
         AnimatePlayer();
+        
     }
 
     void FlipSprite() {
@@ -90,6 +94,19 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool(WALK_ANIMATION, false);
 
         }
+    }
+
+    public void HarvestStopMovement(float time) {
+
+        isHarvesting = true;
+        harvestTimer = Time.time + time;
+
+    }
+
+    public bool IsHarvesting() {
+
+        return isHarvesting;
+
     }
 
    

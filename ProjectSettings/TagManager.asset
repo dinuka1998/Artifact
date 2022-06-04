@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bush
+  - Artifact
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,9 @@ TagManager:
     locked: 0
   - name: Bush
     uniqueID: 1369976749
+    locked: 0
+  - name: Aritifact
+    uniqueID: 3400943879
     locked: 0
   - name: Player
     uniqueID: 3758812617

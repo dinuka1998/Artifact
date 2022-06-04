@@ -18,7 +18,7 @@ Artifact is a simple top-down 2D game in which the players must protect the Arti
 
 ### Download Artifact
 
-[Click here  ](https://github.com/dinuka1998/artifact/tree/main/(Downloads)  to download and play the game.
+[Click here](https://github.com/dinuka1998/artifact/tree/main/(Downloads) "Click here")  to download and play the game.
 
 <hr>
 

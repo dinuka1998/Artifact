@@ -15,7 +15,7 @@
 <hr>
 
 ### Download Artifact
-[Click here  ](https://github.com/dinuka1998/artifact/tree/main/(Downloads) "Click here") to download and play the game.'
+[Click here  ](https://github.com/dinuka1998/artifact/tree/main/(Downloads) "Click here") to download and play the game.
 
 <hr>
 
